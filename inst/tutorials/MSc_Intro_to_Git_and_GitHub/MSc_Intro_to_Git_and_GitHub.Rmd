@@ -98,14 +98,16 @@ Using a good project layout makes life easier. There is no single way to structu
 
 ### **Exercise 2**
 
-a) Start to structure your R project. Download the penguin dataset [here.](https://raw.githubusercontent.com/susjoh/MSc_Intro_to_Git_and_Github/main/data/penguin_data.txt) Where should this go in your repository? 
+a) Start to structure your R project. Download the penguin dataset [here.](https://raw.githubusercontent.com/susjoh/penguin_project/main/data/penguin_data.txt) Where should this go in your repository? 
 
 
 b) Create a file called `README.md` and save it in the main directory. Write a brief description of what the project contains. You can edit this as you go. If you want to do basic formatting, look at the cheat sheet in `Help > Markdown Quick Reference`. This will appear in the *Help* tab in the lower right hand pane.
 
 <details><summary>**Troubleshooting** [click]</summary>
 
-If it goes to your browser instead of a download, save the text in a file `penguin_data.txt`. Use Notepad or even RStudio (Choose `New File > Text File`)
+If it goes to your browser instead of a download, save the text in a file `penguin_data.txt`. Use Notepad or even RStudio (Choose `New File > Text File`).
+
+If you are really stuck with the links, go to https://raw.githubusercontent.com/susjoh/penguin_project/main/data/penguin_data.txt
 
 </details>
 
