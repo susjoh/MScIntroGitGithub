@@ -1,9 +1,14 @@
 ---
 title: "Introduction to Git and Github: creating reproducible workflows in RStudio."
 author: "Susan Johnston"
-date: "2023-09-27"
-output: pdf_document
+date: "2024-09-25"
+output: 
+  pdf_document:
+    latex_engine: xelatex
+mainfont: "Arial"
+monofont: "Consolas"
 ---
+
 
 NB. This is a PDF version of the online tutorial. The tutorial can be accessed either by calling the following in your RStudio (NB. requires `library(learnr)`):
 
@@ -16,7 +21,6 @@ learnr::run_tutorial("MSc_Intro_to_Git_and_GitHub", package = "MScIntroGitGithub
 ```
 
 or try the following link: https://susjoh.shinyapps.io/MSc_Intro_to_Git_and_GitHub/
-
 
 
 ## Introduction.
@@ -59,7 +63,6 @@ The analytical power of **R** lies in its many packages (19,925 as of 25th Sep 2
 
 If you need a quick crash course in **R** after this practical, try [here](https://github.com/susjoh/E4StatsTutorials)
 
-
 ## Palmer Penguins.
 
 Congratulations! You have started a new job as a research on the Palmer penguins project in sunny Antarctica. This is a publicly funded project, meaning the data and analyses should be in the public domain. You will use data from three different species of penguins and explore relationships between their morphometric traits.
@@ -71,7 +74,7 @@ Here are the penguins <3
 
 Do you want to know more about this dataset? Click the link [here](https://allisonhorst.github.io/palmerpenguins/) for more info.
 
-\pagebreak
+
 ## Getting Started in **R** and **RStudio**.
 
 ### Creating an **R** Project.
@@ -224,7 +227,7 @@ write_tsv(penguins_female, "results/1_penguin_female_only.txt")
 ```
 </details>
 
-\pagebreak
+
 ## Version control with `git`.
 
 Now it's time to start doing version control.
@@ -268,12 +271,12 @@ Look at the history again, and you will see the new edit. As you add more commit
 
 **Reverting to the last commit**: If you have made edits but want to revert back to the last save, you can click on the file in `Git` and click `More > Revert`. Use carefully as you'll lose all your changes - it's better to commit the bad stuff with a clear commit message and retrieve a previous version. We'll talk about branches in the next part.
 
-\pagebreak
+
 ## Uploading code to **GitHub**.
 
 Now we can host our repository on **GitHub**.
 
-First, for one time only, you will need to configure your `git` installation. You can do this by clicking on the **Terminal** tab in the bottom left pane. This takes you to the Terminal of your machine (e.g. the command line). Run the following code, editing the terms in [] to match your github account:
+First, for **one time only**, you will need to configure your `git` installation. You can do this by clicking on the **Terminal** tab in the bottom left pane. This takes you to the Terminal of your machine (e.g. the command line). Run the following code, editing the terms in [] to match your github account:
 
 ```
 git config --global user.email [your github email address]
@@ -289,7 +292,7 @@ You should then find the following page:
 
 ![](images/git_11_screenshot.png){width="80%"}
 
-Copy the code under "…or push an existing repository from the command line" and paste it into the **Terminal** window in RStudio. For example, for my username susjoh:
+Copy the code under "…or push an existing repository from the command line" and paste it into the **Terminal** window in RStudio. For example, for my username susjoh [MAKE SURE THAT YOU USE YOUR USERNAME AND NOT MINE]:
 
 ```
 git remote add origin https://github.com/susjoh/penguin_project.git
@@ -330,18 +333,89 @@ Software Carpentry: Getting started with `git`: https://swcarpentry.github.io/gi
 
 Simon Mudd's tutorial (School of Geosciences): http://simon-m-mudd.github.io/NMDM_book/#_version_control_with_git
 
-\pagebreak
+
+## Starting to collaborate - the easy way.
+
+Now that we all have our projects on **GitHub**, we can actively invite others to collaborate on our projects with us. If you trust someone to directly work with you on a project, you can invite them as a collaborator via `Settings > Collaborators > Add People`. They will then be able to freely pull and push in the repository. There are more formal ways to do this (covered in the next two parts of the practical), but this is the easiest (and probably the most common) way.
+
+
+![](images/git_28_screenshot.png){width="80%"}
+
+## Starting to collaborate - a more formal way.
+
+### Forking a repository.
+
+As a fellow researcher on the Palmer penguins, I have asked for your help on my project investigating the Adelie species. My research project is stored in a repository on GitHub, accessed [here](https://github.com/susjoh/adelie_penguins).
+
+If you want to start modifying my code, you can make a **fork**. This is a copy of a repository. Forking a repository allows you to freely experiment with changes without (directly) affecting the original project.
+
+<font color="darkblue">
+
+### **Exercise 5**
+
+Follow the instructions below!
+
+</font>
+
+1. Create a fork by clicking the "Fork" button in the upper right of the GitHub repository. Don't change anything and click "Create fork".
+
+2. You will now see the forked directory in your own GitHub account.
+
+3. In RStudio, go to `File > New Project...` and select the third option `Version Control`:
+
+![](images/git_29_screenshot.png){width="80%"}
+
+4. Select `Git` and then enter the URL of the directory you forked. For example:
+
+![](images/git_31_screenshot.png){width="80%"}
+
+
+4. You will see in the "Git" pane, the Pull and Push buttons should be functional. You can now sync any changes you made with your project fork on your own directory.
+
+5. Make some edits, commit them, and **Push**.
+
+
+### Pull requests: contributing to the original project.
+
+Now you may want to suggest to your collaborator that they should accept the changes you made. We can do this by creating a pull request as before.
+
+You will notice that on your forked repository on GitHub, you will see a message saying "This branch is 1 commit ahead of susjoh:master.". If you click the "Contribute" button, you can "Open pull request" and then "Create a pull request".
+
+![](images/git_24_screenshot.png){width="80%"}
+
+I then receive a notification about the request. I can click on it, review it, and then merge the pull request.
+
+![](images/git_25_screenshot.png){width="80%"}
+
+You now need to sync the fork with the original project by pressing the button on the left and confirming:
+
+![](images/git_27_screenshot.png){width="80%"}
+
+Finally, we can both **Pull** the updated project back to our machines. If you click on the History button, the pull and merge can be seen:
+
+![](images/git_26_screenshot.png){width="80%"}
+
+
+<font color="darkblue">
+
+### **Exercise 6**
+
+Feeling strong? Why not pair up as collaborators on your projects.
+
+</font>
+
+
 
 
 ## Creating a branch.
 
-There are a few reasons why you want to create a branch. Maybe you are about to make a big edit to the analysis that you may not necessarily commit to, but could be merged back into the repository. Or, you are a collaborator making a request to change some code - you do this on a branch, which can then be merged back by the owner of the repository.
+There are a few reasons why you want to create a branch. Maybe you are about to make a big edit to the analysis that you may not necessarily commit to, but could be merged back into the repository. Or, you are a (direct) collaborator making a request to change some code - you do this on a branch, which can then be merged back by the owner of the repository.
 
 *NB. This is a bit complicated to keep track of, so pay attention to each step. If you find/know an easier way, please let me know!*
 
 <font color="darkblue">
 
-### **Exercise 5**
+### **Exercise 7**
 
 Follow the instructions below!
 
@@ -371,70 +445,8 @@ Follow the instructions below!
 
 ![](images/git_20_screenshot.png){width="80%"}
 
-\pagebreak
-## Starting to collaborate.
-
-Now that you are an expert in **git** and **GitHub**, it's time to learn the joys of collaboration. 
-
-### Forking a repository.
-
-As a fellow researcher on the Palmer penguins, I have asked for your help on my project investigating the Adelie species. My research project is stored in a repository on GitHub, accessed [here](https://github.com/susjoh/adelie_penguins).
-
-If you want to start modifying my code, you can make a **fork**. This is a copy of a repository. Forking a repository allows you to freely experiment with changes without (directly) affecting the original project.
-
-<font color="darkblue">
-
-### **Exercise 6**
-
-Follow the instructions below!
-
-</font>
-
-1. Create a fork by clicking the "Fork" button in the upper right of the GitHub repository. Don't change anything and click "Create fork".
-
-2. You will now see the forked directory in your own GitHub account. Now you can clone it to your machine to work on it. Click on "Code" and copy the Clone https link:
-
-![](images/git_23_screenshot.png){width="80%"}
 
 
-3. Navigate to a folder where you would like to put the directory. Now open a terminal window in your folder. In Windows, you can do this by typing `cmd` in the box with the file path. Paste the URL you just copied (see image). The directory should now contain the repository.
 
-```
-git clone https://github.com/susjoh/adelie_penguins.git
-```
-
-4. Open RStudio and create a new project. Specify that you will put it in an Existing Directory, and navigate to the one you just created. In the "Git" pane, the Pull and Push buttons should be functional. You can now sync any changes you made with your project fork on your own directory.
-
-5. Make some edits, commit them, and **Push**.
-
-
-### Pull requests: contributing to the original project.
-
-Now you may want to suggest to your collaborator that they should accept the changes you made. We can do this by creating a pull request as before.
-
-You will notice that on your forked repository on GitHub, you will see a message saying "This branch is 1 commit ahead of susjoh:master.". If you click the "Contribute" button, you can "Open pull request" and then "Create a pull request".
-
-![](images/git_24_screenshot.png){width="80%"}
-
-I then receive a notification about the request. I Ican click on it, review it, and then merge the pull request.
-
-![](images/git_25_screenshot.png){width="80%"}
-
-You now need to sync the fork with the original project by pressing the button on the left and confirming:
-
-![](images/git_27_screenshot.png){width="80%"}
-
-Finally, we can both **Pull** the updated project back to our machines. If you click on the History button, the pull and merge can be seen:
-
-![](images/git_26_screenshot.png){width="80%"}
-
-
-<font color="darkblue">
-
-### **Exercise 7**
-
-Feeling strong? Why not pair up as collaborators on your projects.
-
-</font>
 
 

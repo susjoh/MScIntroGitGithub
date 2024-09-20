@@ -5,7 +5,7 @@ account: susjoh
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 10005520
-bundleId: 7733411
+bundleId: 9126380
 url: https://susjoh.shinyapps.io/MSc_Intro_to_Git_and_GitHub/
 version: 1
 asMultiple: FALSE
