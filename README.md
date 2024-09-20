@@ -22,4 +22,5 @@ learnr::run_tutorial("MSc_Intro_to_Git_and_GitHub", package = "MScIntroGitGithub
 
 Alternatively, you can access the tutorial at https://susjoh.shinyapps.io/MSc_Intro_to_Git_and_GitHub
 
-or a PDF version at 
+or a PDF version at https://github.com/susjoh/MScIntroGitGithub/blob/main/inst/tutorials/MSc_Intro_to_Git_and_GitHub/test.pdf
+
