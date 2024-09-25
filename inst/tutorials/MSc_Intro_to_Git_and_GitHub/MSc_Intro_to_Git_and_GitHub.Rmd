@@ -136,7 +136,7 @@ On the **lower right**, you can browse the packages installed on your machine, o
 Create a new script, save it to your main directory, and start exploring your research question. Be creative! Your goals are to:
 
 * Install and load `library(tidyverse)` (NB. This contains the packages `ggplot2` for plotting, `readr` for easier data reading, and `dplyr` for data manipulation)
-* Load the penguin data into R using `read_table`
+* Load the penguin data into R using `read.table`
 * Run some linear regressions with `lm()`
 * Make and save some plots into `figs/` using `ggplot`
 * Subset the data to only look at a particular species or sex.
@@ -165,7 +165,7 @@ library(tidyverse)
 
 <details><summary>**Read in the data:** [click]</summary>
 ```
-penguins <- read_table("data/penguin_data.txt")
+penguins <- read.table("data/penguin_data.txt", header = T)
 glimpse(penguins)
 
 ```
@@ -233,6 +233,23 @@ The pane should look something like this:
 
 FYI: the `.gitignore` file is a text file specifying files and directories that git should ignore - for example, your .Rhistory, .RProj files and so on. For example, if you have very large data or results files, you may not want to commit them to save disk space.
 
+### Configure your `git`
+
+First, for **one time only**, you will need to configure your `git` installation. You can do this by clicking on the **Terminal** tab in the bottom left pane. This takes you to the Terminal of your machine (e.g. the command line). Run the following code, editing the terms to match your github account:
+
+
+```
+git config --global user.email    your github email address
+git config --global user.name     your github username
+```
+
+For example, mine would be:   [WARNING, MAKE SURE YOU DO NOT PASTE MY DETAILS!]
+
+```
+git config --global user.email Susan.Johnston@ed.ac.uk
+git config --global user.name susjoh
+```
+
 ### The first commit
 
 Click on the boxes under the column `Staged`. These should turn from question marks to a green `A`. This means that you have added these files to the repository. Click `Commit`. A new dialogue should appear:
@@ -264,14 +281,7 @@ Look at the history again, and you will see the new edit. As you add more commit
 
 Now we can host our repository on **GitHub**.
 
-First, for **one time only**, you will need to configure your `git` installation. You can do this by clicking on the **Terminal** tab in the bottom left pane. This takes you to the Terminal of your machine (e.g. the command line). Run the following code, editing the terms in [] to match your github account:
-
-```
-git config --global user.email [your github email address]
-git config --global user.name [your github username]
-```
-
-Now log on to [GitHub](https://github.com). Navigate to your profile, click repositories, and then the green "New" button. Create a repository with the same name as your R project (e.g. `penguin_project`). Don't change anything else, and click "Create repository".
+Log on to [GitHub](https://github.com). Navigate to your profile, click repositories, and then the green "New" button. Create a repository with the same name as your R project (e.g. `penguin_project`). Don't change anything else, and click "Create repository".
 
 
 ![](images/git_10_screenshot.png){width="80%"}
@@ -280,7 +290,7 @@ You should then find the following page:
 
 ![](images/git_11_screenshot.png){width="80%"}
 
-Copy the code under "…or push an existing repository from the command line" and paste it into the **Terminal** window in RStudio. For example, for my username susjoh [MAKE SURE THAT YOU USE YOUR USERNAME AND NOT MINE]:
+Copy the code under "…or push an existing repository from the command line" and paste it into the **Terminal** window in RStudio. For example, for my username susjoh [AGAIN MAKE SURE THAT YOU USE YOUR USERNAME AND NOT MINE]:
 
 ```
 git remote add origin https://github.com/susjoh/penguin_project.git
@@ -288,7 +298,15 @@ git branch -M main
 git push -u origin main
 ```
 
-Now go back to your browser and refresh the page. It should look something like this: 
+### Hold up - I need to authenticate!
+
+**WINDOWS USERS:** Most likely, you might get a pop-up asking for your credentials. Add your username, password, access code etc. and then you will be connected. It is normal that the password does not appear when you type it.
+
+**MAC USERS:** This process is slightly more complicated. Instead of a password, you will need to use a "Token". Go to https://github.com/settings/tokens/new , add a little Note, and select "No Expiration" for the expiration date. Then select all the tick-boxes and click "Generate Token". It will give you a long passcode highlighted in green - copy and paste this instead of your password, and you should get access. 
+
+### Back to GitHub....
+
+Now that you have connected everything, go back to your browser and refresh the page. It should look something like this: 
 
 ![](images/git_12_screenshot.png){width="80%"}
 
