@@ -1,7 +1,7 @@
 ---
 title: "Introduction to Git and Github: creating reproducible workflows in RStudio"
 author: "Dr Susan Johnston Susan.Johnston@ed.ac.uk"
-date: "25th September 2024"
+date: "24th September 2025"
 output: learnr::tutorial
 runtime: shiny_prerendered
 ---

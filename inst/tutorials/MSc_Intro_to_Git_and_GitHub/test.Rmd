@@ -1,12 +1,8 @@
 ---
-title: "Introduction to Git and Github: creating reproducible workflows in RStudio."
+title: 'Introduction to Git and Github: creating reproducible workflows in RStudio.'
 author: "Susan Johnston"
 date: "2024-09-25"
-output: 
-  pdf_document:
-    latex_engine: xelatex
-mainfont: "Arial"
-monofont: "Consolas"
+output: word_document
 ---
 
 
